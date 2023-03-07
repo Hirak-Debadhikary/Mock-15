@@ -41,34 +41,6 @@ router.post("/register", (req, res) => {
     });
 });
 
-// Login API
-// router.post("/login", (req, res) => {
-//   const { email, password } = req.body;
-
-//   if (!email || !password) {
-//     return res.status(400).json({ message: "Email and password are required" });
-//   }
-
-//   User.findOne({ email })
-//     .then((user) => {
-//       if (!user) {
-//         return res.status(400).json({ message: "Invalid email or password" });
-//       }
-//       const isMatch = bcrypt.compareSync(password, user.password);
-
-//       if (!isMatch) {
-//         return res.status(400).json({ message: "Invalid email or password" });
-//       }
-
-//       const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET);
-
-//       res.status(200).json({ token });
-//     })
-//     .catch((err) => {
-//       console.log(err);
-//       res.status(500).json({ message: "Internal server error" });
-//     });
-// });
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
